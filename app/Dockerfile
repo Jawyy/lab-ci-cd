@@ -5,7 +5,9 @@ WORKDIR /app
 
 COPY . /app
 
-RUN apk add --no-cache curl \
+# O 'apk upgrade' foi adicionado aqui para corrigir as vulnerabilidades do Alpine
+RUN apk upgrade --no-cache \
+    && apk add --no-cache curl \
     && pip install --trusted-host pypi.python.org -r requirements.txt
 
 EXPOSE 8000
