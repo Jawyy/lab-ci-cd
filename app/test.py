@@ -1,4 +1,4 @@
-rom app import app
+from app import app
 import unittest
 
 class Test(unittest.TestCase):
